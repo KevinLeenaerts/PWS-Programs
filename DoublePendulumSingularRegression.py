@@ -13,8 +13,9 @@ frames = time * FPS
 traceFrames = traceTime * FPS
 t = np.linspace(0, time, frames)
 
-theta = 1
-thetaVel = 10**-10
+theta1 = 1
+theta2 = 1
+dTheta = 0.001
 
 x1_data = []
 y1_data = []
@@ -26,7 +27,7 @@ lines = []
 traceLines = []
 regressionLines = []
 
-x1, y1, x2, y2 = DoublePendulum.generateData(1, 1, 2, 1, theta, -thetaVel, 0, 0, t)
+x1, y1, x2, y2 = DoublePendulum.generateData(1, 1, 2, 1, theta1, 0, theta2, 0, t)
 x1_data.append(x1)
 y1_data.append(y1)
 x2_data.append(x2)
@@ -36,7 +37,7 @@ traceLine, = ax1.plot([], [], lw=3, markersize=8, alpha=0.2)
 lines.append(line)
 traceLines.append(traceLine)
 
-x1, y1, x2, y2 = DoublePendulum.generateData(1, 1, 2, 1, theta, thetaVel, 0, 0, t)
+x1, y1, x2, y2 = DoublePendulum.generateData(1, 1, 2, 1, theta1 + dTheta, 0, theta2 + dTheta, 0, t)
 x1_data.append(x1)
 y1_data.append(y1)
 x2_data.append(x2)
